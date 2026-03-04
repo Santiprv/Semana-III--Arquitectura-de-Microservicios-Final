@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="chat-body">
+
+
+    <main class="chat-container">
+
+        <div id="cambiar_colores">
+            <label for="diseño">Escoge una paleta de colores</label>
+            <select name="diseño" id="diseño">
+                <option value="white">Modo Claro</option>
+                <option value="black">Modo Oscuro</option>
+            </select>
+        </div>
+
+
+        <div id="chat-window" class="chat-window">
+            <div id="welcome-message" class="welcome-text">
+                <h1>Bienvenido al Chatbot</h1>
+            </div>
+        </div>
+
+        <div class="input-area">
+            <div class="input-wrapper">
+                <div id="file-preview" class="file-preview hidden"></div>
+                
+                <div class="input-controls">
+                    <label class="icon-button" title="Adjuntar imagen">
+                        <i class="fa-solid fa-image"></i>
+                        <input type="file" id="file-input" class="hidden-input" accept="image/*" onchange="mostrarPreview()">
+                    </label>
+
+                    <textarea id="user-input" rows="1" placeholder="Escribe tu mensaje aquí..." 
+                        oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px'"></textarea>
+
+                    <button onclick="enviarMensaje()" class="send-button">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="tokens">
+                <span>In: <b id="t-in">0</b></span>
+                <span>Out: <b id="t-out">0</b></span>
+                <span class="total">Total: <b id="t-total">0</b></span>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
